@@ -32,7 +32,7 @@ LineNotify for Java
         # 傳輸層安全性協定（英語：Transport Layer Security，縮寫：TLS）
         # TSL 是更新、更安全的 SSL 版本。
         headers = {
-            "Authorization": "Bearer " + token
+            "Authorization": "Bearer " + token  # 不用加入 "Content-Type" : "application/x-www-form-urlencoded"
         }
 
         payload = {'message': msg }
@@ -44,7 +44,7 @@ LineNotify for Java
       token = 'iNlHHliJKPbIjmS2ujkHbTRZiDI8VDc4goD3ZNLDr8G'
       message = 'Girl 女孩'
       #lineNotifyMessage(token, message)
-      picURI = "img_1.png"
+      picURI = "img_1.png"  #圖片位置
       lineNotifyMessageAndImage(token, message, picURI)
 
   
