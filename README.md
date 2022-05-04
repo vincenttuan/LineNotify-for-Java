@@ -41,8 +41,8 @@ LineNotify for Java
         Serial.begin(9600);
         WiFi.begin("SSID","SSPWD");
         while(WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
+            delay(500);
+            Serial.print(".");
         }
         Serial.println(WiFi.localIP());
     }
