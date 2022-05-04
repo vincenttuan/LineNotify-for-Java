@@ -11,9 +11,13 @@ LineNotify for Java
 
 # LineNotify-for-Python
 
+#基本功能測試
     import requests
 
     def lineNotifyMessage(token, msg):
+        # HTTP 1.1 TLS下去定義的 Token
+        # 傳輸層安全性協定（英語：Transport Layer Security，縮寫：TLS）
+        # TSL 是更新、更安全的 SSL 版本。
         headers = {
             "Authorization": "Bearer " + token,
             "Content-Type" : "application/x-www-form-urlencoded"
@@ -23,10 +27,26 @@ LineNotify for Java
         r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
         return r.status_code
 
+    def lineNotifyMessageAndImage(token, msg, picURI):
+        # HTTP 1.1 TLS下去定義的 Token
+        # 傳輸層安全性協定（英語：Transport Layer Security，縮寫：TLS）
+        # TSL 是更新、更安全的 SSL 版本。
+        headers = {
+            "Authorization": "Bearer " + token
+        }
+
+        payload = {'message': msg }
+        files = {'imageFile': open(picURI, 'rb')}
+        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload, files = files)
+        return r.status_code
+
     if __name__ == "__main__":
-        token = '存取權杖'
-        message = 'Python 基本功能測試'
-        lineNotifyMessage(token, message)
+      token = 'iNlHHliJKPbIjmS2ujkHbTRZiDI8VDc4goD3ZNLDr8G'
+      message = 'Girl 女孩'
+      #lineNotifyMessage(token, message)
+      picURI = "img_1.png"
+      lineNotifyMessageAndImage(token, message, picURI)
+
   
 # LineNotify-for-Arduino D1mini
 
