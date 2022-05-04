@@ -6,5 +6,5 @@ LineNotify for Java
  * 右上方-選擇「個人頁面」
  * 發行存取權杖（開發人員用）
  * 放到<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>中
- * 選定傳送對象與群組
- * 執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
+ * 選定傳送對象與群組(若是用群組必須先把LineNotify加入至群組成員)
+ * 最後執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
