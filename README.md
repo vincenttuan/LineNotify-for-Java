@@ -30,30 +30,31 @@ LineNotify for Java
   
 <hr />
 # Arduino D1mini 版
-// 額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json
-// 開發版選擇: LOLIN(WEMOS)D1 mini(clone)
-#include <ESP8266WiFi.h>
-// 取得Line Notify函式庫，可至Arduino IDE的程式庫管理員打上Line Notify安裝。
-#include <TridentTD_LineNotify.h>
+ * 額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+ * 開發版選擇: LOLIN(WEMOS)D1 mini(clone)
+ * 取得Line Notify函式庫，可至Arduino IDE的程式庫管理員打上Line Notify安裝。
 
-void setup() {
-    Serial.begin(9600);
-    WiFi.begin("SSID","SSPWD");
-    while(WiFi.status() != WL_CONNECTED) {
-      delay(500);
-      Serial.print(".");
+    #include <ESP8266WiFi.h>
+    #include <TridentTD_LineNotify.h>
+
+    void setup() {
+        Serial.begin(9600);
+        WiFi.begin("SSID","SSPWD");
+        while(WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+        }
+    Serial.println(WiFi.localIP());
     }
-  Serial.println(WiFi.localIP());
-}
 
-void loop() {
-   // 顯示 Line版本
-  Serial.println(LINE.getVersion());
-  LINE.setToken("存取權杖");
-  // 先換行再顯示
-  String tempe="溫度:"+String(24)+"℃";   
-  String humid="濕度:"+String(55)+"％";
-  LINE.notify("\n" + tempe + " ；" + humid);
-  delay(50000);
-}
+    void loop() {
+        // 顯示 Line版本
+        Serial.println(LINE.getVersion());
+        LINE.setToken("存取權杖");
+        // 先換行再顯示
+        String tempe="溫度:"+String(24)+"℃";   
+        String humid="濕度:"+String(55)+"％";
+        LINE.notify("\n" + tempe + " ；" + humid);
+        delay(50000);
+    }
   
