@@ -39,7 +39,7 @@ LineNotify for Java
         return r.status_code
 
     if __name__ == "__main__":
-      token = 'iNlHHliJKPbIjmS2ujkHbTRZiDI8VDc4goD3ZNLDr8G'
+      token = '存取權杖'
       message = 'Girl 女孩'
       #lineNotifyMessage(token, message)
       picURI = "img_1.png"  #圖片位置
