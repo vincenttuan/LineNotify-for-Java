@@ -28,12 +28,11 @@ LineNotify for Java
         message = 'Python 基本功能測試'
         lineNotifyMessage(token, message)
   
-<hr />
 # LineNotify-for-Arduino D1mini
 
-額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json
-開發版選擇: LOLIN(WEMOS)D1 mini(clone)
-取得Line Notify函式庫，可至Arduino IDE的程式庫管理員打上Line Notify安裝。
+ * 額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+ * 開發版選擇: LOLIN(WEMOS)D1 mini(clone)
+ * 取得Line Notify函式庫，可至Arduino IDE的程式庫管理員打上Line Notify安裝。
 
     #include <ESP8266WiFi.h>
     #include <TridentTD_LineNotify.h>
