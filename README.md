@@ -28,11 +28,9 @@ LineNotify for Java
         return r.status_code
 
     def lineNotifyMessageAndImage(token, msg, picURI):
-        # HTTP 1.1 TLS下去定義的 Token
-        # 傳輸層安全性協定（英語：Transport Layer Security，縮寫：TLS）
-        # TSL 是更新、更安全的 SSL 版本。
+        # 不用加入 "Content-Type" : "application/x-www-form-urlencoded"
         headers = {
-            "Authorization": "Bearer " + token  # 不用加入 "Content-Type" : "application/x-www-form-urlencoded"
+            "Authorization": "Bearer " + token  
         }
 
         payload = {'message': msg }
