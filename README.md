@@ -10,7 +10,8 @@ LineNotify for Java
  * 最後執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
 
 <hr />
-# python 版
+# LineNotify-for-Java
+
     import requests
 
     def lineNotifyMessage(token, msg):
@@ -29,7 +30,8 @@ LineNotify for Java
         lineNotifyMessage(token, message)
   
 <hr />
-# Arduino D1mini 版
+# LineNotify-for-Java
+
  * 額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json
  * 開發版選擇: LOLIN(WEMOS)D1 mini(clone)
  * 取得Line Notify函式庫，可至Arduino IDE的程式庫管理員打上Line Notify安裝。
