@@ -7,3 +7,4 @@ LineNotify for Java
  * 發行存取權杖（開發人員用）
  * 放到<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>中
  * 選定傳送對象與群組
+ * 執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
