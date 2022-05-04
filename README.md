@@ -11,24 +11,22 @@ LineNotify for Java
 
 <hr />
 # python 版
-import requests
+    import requests
 
-def lineNotifyMessage(token, msg):
+    def lineNotifyMessage(token, msg):
+        headers = {
+            "Authorization": "Bearer " + token,
+            "Content-Type" : "application/x-www-form-urlencoded"
+        }
 
-    headers = {
-        "Authorization": "Bearer " + token,
-        "Content-Type" : "application/x-www-form-urlencoded"
-    }
+        payload = {'message': msg }
+        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
+        return r.status_code
 
-    payload = {'message': msg }
-    r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
-    return r.status_code
-
-
-if __name__ == "__main__":
-  token = '存取權杖'
-  message = 'Python 基本功能測試'
-  lineNotifyMessage(token, message)
+    if __name__ == "__main__":
+        token = '存取權杖'
+        message = 'Python 基本功能測試'
+        lineNotifyMessage(token, message)
   
 <hr />
 # Arduino D1mini 版
