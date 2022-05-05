@@ -1,4 +1,4 @@
-# LineNotify-for-Java
+# LineNotify-for-Java I
 LineNotify for Java
 
  * https://notify-bot.line.me/zh_TW/
@@ -8,6 +8,47 @@ LineNotify for Java
  * 放到<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>中
  * 選定傳送對象與群組(若是用群組必須先把LineNotify加入至群組成員)
  * 最後執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
+
+# LineNotify-for-Python II
+
+    import java.io.DataOutputStream;
+    import java.net.HttpURLConnection;
+    import java.net.URL;
+
+    public class LineNotifyDemo {
+
+        public static void main(String[] args) throws Exception {
+            // 1. 要發送的資料
+            String message = "Hello Java 中文";
+            // 2. 存取權杖(也稱為:授權 Token)
+            String token = "存取權杖";
+            // 3. Line Notify 的發送位置
+            String lineNotifyUrl = "https://notify-api.line.me/api/notify";
+            // 4. 發送前設定 -------------------------------------------------------------------------
+            byte[] postData = ("message=" + message).getBytes("UTF-8");
+            int postDataLength = postData.length;
+            URL url = new URL(lineNotifyUrl);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setInstanceFollowRedirects(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Authorization", "Bearer " + token);
+            conn.setRequestProperty("charset", "utf-8");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+            conn.setUseCaches(false);
+            // 5. 訊息發送 ---------------------------------------------------------------------------
+            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+                wr.write(postData);
+                wr.flush();
+            }
+            // 6. 回應資料 ---------------------------------------------------------------------------
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
+                int statusCode = conn.getResponseCode();
+                System.out.println(statusCode);
+            }
+        }
+    }
 
 # LineNotify-for-Python
 
