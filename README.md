@@ -30,7 +30,6 @@ LineNotify for Java
             URL url = new URL(lineNotifyUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
-            conn.setInstanceFollowRedirects(false);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Authorization", "Bearer " + token); // 一定要加
             conn.setRequestProperty("charset", "utf-8"); // 可以不用加
