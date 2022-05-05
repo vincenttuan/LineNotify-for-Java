@@ -32,10 +32,10 @@ LineNotify for Java
             conn.setDoOutput(true);
             conn.setInstanceFollowRedirects(false);
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Authorization", "Bearer " + token);
-            conn.setRequestProperty("charset", "utf-8");
-            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            conn.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+            conn.setRequestProperty("Authorization", "Bearer " + token); // 一定要加
+            conn.setRequestProperty("charset", "utf-8"); // 可以不用加
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); // 可以不用加
+            conn.setRequestProperty("Content-Length", Integer.toString(postDataLength)); // 可以不用加
             conn.setUseCaches(false);
             // 5. 訊息發送 ---------------------------------------------------------------------------
             try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
