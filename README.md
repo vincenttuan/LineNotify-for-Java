@@ -9,7 +9,7 @@ LineNotify for Java
  * 選定傳送對象與群組(若是用群組必須先把LineNotify加入至群組成員)
  * 最後執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
 
-# LineNotify-for-Python II
+# LineNotify-for-Java II
 
     import java.io.DataOutputStream;
     import java.net.HttpURLConnection;
