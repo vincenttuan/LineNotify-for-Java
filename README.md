@@ -25,10 +25,11 @@ LineNotify for Java
             // 3. Line Notify 的發送位置
             String lineNotifyUrl = "https://notify-api.line.me/api/notify";
             // 4. 發送前設定 -------------------------------------------------------------------------
+            // 發送文字
             byte[] postData = ("message=" + message).getBytes("UTF-8");
-            // 發送文字 + 圖片
+            // 發送文字 + 縮略圖 + 網路圖片
             // String picurl = "https://image.cache.u-car.com.tw/articleimage_1091049.jpg";
-            //byte[] postData = ("message=" + message + "&stickerPackageId=1&stickerId=113&imageThumbnail=" + picurl + "&imageFullsize=" + picurl).getBytes("UTF-8");
+            // byte[] postData = ("message=" + message + "&stickerPackageId=1&stickerId=113&imageThumbnail=" + picurl + "&imageFullsize=" + picurl).getBytes("UTF-8");
 
             int postDataLength = postData.length;
             URL url = new URL(lineNotifyUrl);
