@@ -116,3 +116,5 @@ LineNotify for Java
         delay(50000);
     }
   
+其他語言支援:
+http://white5168.blogspot.com/2017/01/line-notify-4-line-notify.html#.YnoI0RNBzok
