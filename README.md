@@ -83,13 +83,34 @@ LineNotify for Java
         r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload, files = files)
         return r.status_code
 
-    if __name__ == "__main__":
-      token = '存取權杖'
-      message = 'Girl 女孩'
-      #lineNotifyMessage(token, message)
-      picURI = "img_1.png"  #圖片位置
-      lineNotifyMessageAndImage(token, message, picURI)
+    def lineNotifyMessageAndStickerThumbnail(token, msg, picURI, stickerPackageId, stickerId):
+        headers = {
+            "Authorization": "Bearer " + token
+        }
 
+        payload = {
+            'message': msg,
+            'stickerPackageId': stickerPackageId,
+            'stickerId': stickerId,
+            'imageThumbnail': picURI,
+            'imageFullsize': picURI
+        }
+        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
+        return r.status_code
+    
+    
+    if __name__ == "__main__":
+        token = '存取權杖'
+        message = 'Girl 女孩'
+        code = lineNotifyMessage(token, message)
+        
+        #picURI = "img_1.png"  #圖片位置
+        #code = lineNotifyMessageAndImage(token, message, picURI)
+      
+        #picURI = "https://image.cache.u-car.com.tw/articleimage_1091049.jpg"  # 圖片網路位置
+        #code = lineNotifyMessageAndStickerThumbnail(token, message, picURI, 1, 113)
+
+        print(code)  
   
 # LineNotify-for-Arduino D1mini
 
