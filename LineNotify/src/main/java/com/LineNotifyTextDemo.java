@@ -25,17 +25,6 @@ public class LineNotifyTextDemo {
         String picurl = "https://image.cache.u-car.com.tw/articleimage_1091049.jpg";
         byte[] postData = ("message=" + message + "&stickerPackageId=1&stickerId=113&imageThumbnail=" + picurl + "&imageFullsize=" + picurl).getBytes("UTF-8");
         
-        /*
-        byte[] text = ("message=" + message + "&imageFile=").getBytes("UTF-8");
-        File file = new File("src/main/java/com/F18.jpg");
-        FileInputStream in = new FileInputStream(file);
-        long size = file.length();
-        byte[] temp = new byte[(int)size];
-        in.read(temp);
-        byte[] postData = mergeBytes(text, temp);
-        in.close();
-        */
-        
         //int postDataLength = postData.length;
         URL url = new URL(lineNotifyUrl);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
