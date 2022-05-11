@@ -18,7 +18,7 @@ public class LineNotifyImageFileDemo {
         // 1. 要發送的資料
         String message = "Hello Java 中文" + new Date();
         // 2. 存取權杖(也稱為:授權 Token)
-        String token = "KaifJyeKe08TPHBOWR3L9gAs6FW1OukQy3BnDcmOf4r";
+        String token = "存取權杖";
         // 3. Line Notify 的發送位置
         String lineNotifyUrl = "https://notify-api.line.me/api/notify";
         // 4. 上傳檔案
@@ -29,7 +29,7 @@ public class LineNotifyImageFileDemo {
         headers.put("Authorization", "Bearer " + token);
         HttpPostMultipart multipart = new HttpPostMultipart(lineNotifyUrl, "utf-8", headers);
         // post參數
-        multipart.addFormField("message", "upload image");
+        multipart.addFormField("message", message);
         // 上傳文件
         multipart.addFilePart("imageFile", file);
         // 返回信息
