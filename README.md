@@ -58,6 +58,7 @@ LineNotify for Java
     }
 
 # LineNotify-for-Java(上傳檔案圖像版 multipart/form-data)
+ * 資源檔：<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/HttpPostMultipart.java">HttpPostMultipart.java</a>
     import java.io.File;
     import java.util.Date;
     import java.util.HashMap;
