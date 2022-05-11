@@ -1,7 +1,8 @@
 # LineNotify-for-Java
 LineNotify for Java
 
- * https://notify-bot.line.me/zh_TW/
+ * https://notify-bot.line.me/zh_TW/ (主網頁)
+ * https://notify-bot.line.me/doc/en/ (API文件)
  * 右上方-登入
  * 右上方-選擇「個人頁面」
  * 發行存取權杖（開發人員用）
