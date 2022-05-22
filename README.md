@@ -161,7 +161,7 @@ LineNotify for Java
 
     void setup() {
       Serial.begin(9600);
-      WiFi.begin("vincenttuan2", "0920947523");
+      WiFi.begin("<YOUR_SSID>", "<YOUR_SSPWD>");
       while (WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
@@ -175,7 +175,7 @@ LineNotify for Java
         String data = "message=" + String("水位超過警示");
         Secure_client.println("POST /api/notify HTTP/1.1");
         Secure_client.println("Host: notify-api.line.me");
-        Secure_client.println("Authorization: Bearer Nj5aoSCYDjH3FB8jBKBSpdnioUjy7koS2zDHGUFUYFR");
+        Secure_client.println("Authorization: Bearer <YOUR_TOKEN>");
         Secure_client.println("Content-Type: application/x-www-form-urlencoded");
         Secure_client.print("Content-Length: ");
         Secure_client.println(data.length());
