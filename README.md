@@ -150,10 +150,46 @@ LineNotify for Java
 
         print(code)  
   
-# LineNotify-for-Arduino D1mini
-
+# LineNotify-for-Arduino D1mini  Part1
 額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json <br />
 開發版選擇: LOLIN(WEMOS)D1 mini(clone) <br />
+
+    #include <ESP8266WiFi.h>
+    #include <WiFiClientSecure.h>
+
+    WiFiClientSecure Secure_client;
+
+    void setup() {
+      Serial.begin(9600);
+      WiFi.begin("vincenttuan2", "0920947523");
+      while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+      }
+      Serial.println(WiFi.localIP());
+    }
+
+    void loop() {
+      if (Secure_client.connect("notify-api.line.me", 443)) {
+        Serial.println("send");
+        String data = "message=" + String("水位超過警示");
+        Secure_client.println("POST /api/notify HTTP/1.1");
+        Secure_client.println("Host: notify-api.line.me");
+        Secure_client.println("Authorization: Bearer Nj5aoSCYDjH3FB8jBKBSpdnioUjy7koS2zDHGUFUYFR");
+        Secure_client.println("Content-Type: application/x-www-form-urlencoded");
+        Secure_client.print("Content-Length: ");
+        Secure_client.println(data.length());
+        Secure_client.println();
+        Secure_client.println(data);
+        Secure_client.stop();
+        Serial.println("stop");
+      } else {
+        Serial.println("error");
+      }
+      delay(5000);
+    }
+
+# LineNotify-for-Arduino D1mini  Part2
 取得Line Notify函式庫，可至Arduino IDE的程式庫管理員打上Line Notify安裝。<br />
 
     #include <ESP8266WiFi.h>
