@@ -1,9 +1,9 @@
-# LineNotify-for-Java
+# LineNotify
 LineNotify API 文件
  * https://notify-bot.line.me/doc/en/ (API文件)
  * https://developers.line.biz/en/docs/messaging-api/sticker-list/ (sticker 小圖)
 
-LineNotify for Java
+LineNotify 設定
  * https://notify-bot.line.me/zh_TW/ (主網頁) 
  * 右上方-登入
  * 右上方-選擇「個人頁面」
@@ -11,6 +11,64 @@ LineNotify for Java
  * 放到<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>中
  * 選定傳送對象與群組(若是用群組必須先把LineNotify加入至群組成員)
  * 最後執行<a href="https://github.com/vincenttuan/LineNotify-for-Java/blob/main/LineNotify/src/main/java/com/linenotify/Application.java">Application.java</a>即可
+
+# LineNotify-for-Python
+
+#基本功能測試
+    import requests
+
+    def lineNotifyMessage(token, msg):
+        # HTTP 1.1 TLS下去定義的 Token
+        # 傳輸層安全性協定（英語：Transport Layer Security，縮寫：TLS）
+        # TSL 是更新、更安全的 SSL 版本。
+        headers = {
+            "Authorization": "Bearer " + token,
+            "Content-Type" : "application/x-www-form-urlencoded"
+        }
+
+        payload = {'message': msg }
+        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
+        return r.status_code
+
+    def lineNotifyMessageAndImage(token, msg, picURI):
+        # 不用加入 "Content-Type" : "application/x-www-form-urlencoded"
+        headers = {
+            "Authorization": "Bearer " + token  
+        }
+
+        payload = {'message': msg }
+        files = {'imageFile': open(picURI, 'rb')}
+        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload, files = files)
+        return r.status_code
+
+    def lineNotifyMessageAndStickerThumbnail(token, msg, picURI, stickerPackageId, stickerId):
+        headers = {
+            "Authorization": "Bearer " + token
+        }
+
+        payload = {
+            'message': msg,
+            'stickerPackageId': stickerPackageId,
+            'stickerId': stickerId,
+            'imageThumbnail': picURI,
+            'imageFullsize': picURI
+        }
+        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
+        return r.status_code
+    
+    
+    if __name__ == "__main__":
+        token = '存取權杖'
+        message = 'Girl 女孩'
+        code = lineNotifyMessage(token, message)
+        
+        #picURI = "img_1.png"  #圖片位置
+        #code = lineNotifyMessageAndImage(token, message, picURI)
+      
+        #picURI = "https://image.cache.u-car.com.tw/articleimage_1091049.jpg"  # 圖片網路位置
+        #code = lineNotifyMessageAndStickerThumbnail(token, message, picURI, 1, 113)
+
+        print(code)  
 
 # LineNotify-for-Java(簡單版)
 
@@ -92,63 +150,7 @@ LineNotify for Java
 
     }
 
-# LineNotify-for-Python
 
-#基本功能測試
-    import requests
-
-    def lineNotifyMessage(token, msg):
-        # HTTP 1.1 TLS下去定義的 Token
-        # 傳輸層安全性協定（英語：Transport Layer Security，縮寫：TLS）
-        # TSL 是更新、更安全的 SSL 版本。
-        headers = {
-            "Authorization": "Bearer " + token,
-            "Content-Type" : "application/x-www-form-urlencoded"
-        }
-
-        payload = {'message': msg }
-        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
-        return r.status_code
-
-    def lineNotifyMessageAndImage(token, msg, picURI):
-        # 不用加入 "Content-Type" : "application/x-www-form-urlencoded"
-        headers = {
-            "Authorization": "Bearer " + token  
-        }
-
-        payload = {'message': msg }
-        files = {'imageFile': open(picURI, 'rb')}
-        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload, files = files)
-        return r.status_code
-
-    def lineNotifyMessageAndStickerThumbnail(token, msg, picURI, stickerPackageId, stickerId):
-        headers = {
-            "Authorization": "Bearer " + token
-        }
-
-        payload = {
-            'message': msg,
-            'stickerPackageId': stickerPackageId,
-            'stickerId': stickerId,
-            'imageThumbnail': picURI,
-            'imageFullsize': picURI
-        }
-        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
-        return r.status_code
-    
-    
-    if __name__ == "__main__":
-        token = '存取權杖'
-        message = 'Girl 女孩'
-        code = lineNotifyMessage(token, message)
-        
-        #picURI = "img_1.png"  #圖片位置
-        #code = lineNotifyMessageAndImage(token, message, picURI)
-      
-        #picURI = "https://image.cache.u-car.com.tw/articleimage_1091049.jpg"  # 圖片網路位置
-        #code = lineNotifyMessageAndStickerThumbnail(token, message, picURI, 1, 113)
-
-        print(code)  
   
 # LineNotify-for-Arduino D1mini  Part1
 額外開發版網址: https://arduino.esp8266.com/stable/package_esp8266com_index.json <br />
